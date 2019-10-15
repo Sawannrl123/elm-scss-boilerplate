@@ -1,0 +1,23 @@
+// File: _header.scss
+// This file contains all styles related to the header of the site/application.
+/* STYLES GO HERE */
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  @include transition(all .5s linear);
+  z-index: 100;
+  &-scrolled {
+    @include box-shadow(-21.213px 21.213px 30px 0 rgba(158,158,158,.3))
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

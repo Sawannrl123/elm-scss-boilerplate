@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-right: auto;
+  margin-left: auto;
+  @include bp('extra-small') {
+    max-width: calculateRem(540px)
+  }
+
+  @include bp('small') {
+    max-width: calculateRem(720px)
+  }
+  @include bp('medium') {
+    max-width: calculateRem(960px)
+  }
+}

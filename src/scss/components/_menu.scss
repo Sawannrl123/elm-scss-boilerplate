@@ -1,0 +1,8 @@
+.menu-link {
+  text-transform: uppercase;
+  font-size: calculateRem(12px);
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: middle;
+  padding: $gutter $gutter/2;
+}

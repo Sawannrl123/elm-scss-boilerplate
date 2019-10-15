@@ -6,31 +6,12 @@
     https://github.com/halfzebra/create-elm-app/issues/320
     @import 'styles/_colors.scss'; // assuming a styles directory under src/
 */
-
-@import 'layout/header';
-
-
-
-[data-elm-hot="true"] {
-  height: inherit;
-}
-
-body {
-  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
-  text-align: center;
-  color: #293c4b;
-}
-
-img {
-  margin: 20px 0;
-  max-width: 200px;
-}
-
-
-$base-color: #c6538c;
-$border-dark: rgba($base-color, 0.88);
-
-.alert {
-  border: 1px solid $border-dark;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap&subset=devanagari,latin-ext');
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'global';
+@import 'sections/header';
+@import 'components/logo';
+@import 'components/menu';

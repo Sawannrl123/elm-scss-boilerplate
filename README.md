@@ -788,7 +788,7 @@ Mutate the configuration directly or use [webpack-merge](https://www.npmjs.com/p
 `env` variable will help you distinguish `"development"` from `"production"` for environment-specific overrides.
 
 ## Configuring the Proxy Manually
- 
+
 If the `proxy` option is not flexible enough for you, you can get direct access to the Express app instance and hook up your own proxy middleware.
 
 You can use this feature in conjunction with the `proxy` property in `elmapp.config.js`, but it is recommended you consolidate all of your logic into `setupProxy` property`.

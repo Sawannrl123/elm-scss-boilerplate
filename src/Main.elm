@@ -3,6 +3,11 @@ module Main exposing (..)
 import Browser
 import Html exposing (Html, div, h1, img, text)
 import Html.Attributes exposing (class, src)
+import Sections.Header as Header
+
+
+type alias Flags =
+    { images : { logo : String } }
 
 
 
@@ -10,12 +15,18 @@ import Html.Attributes exposing (class, src)
 
 
 type alias Model =
-    {}
+    { images : { logo : String }
+    }
 
 
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
+initModel : Model
+initModel =
+    { images = { logo = "" } }
+
+
+init : Flags -> ( Model, Cmd Msg )
+init flags =
+    ( { initModel | images = flags.images }, Cmd.none )
 
 
 
@@ -38,8 +49,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [ class "header" ] [ text "Your Elm App is working!" ]
+        [ Header.headerComponent model.images.logo
         ]
 
 
@@ -47,11 +57,11 @@ view model =
 ---- PROGRAM ----
 
 
-main : Program () Model Msg
+main : Program Flags Model Msg
 main =
     Browser.element
         { view = view
-        , init = \_ -> init
+        , init = init
         , update = update
         , subscriptions = always Sub.none
         }

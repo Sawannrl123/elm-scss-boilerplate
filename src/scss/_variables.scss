@@ -1,0 +1,14 @@
+$white: #fff;
+$black: #000;
+$text: #222;
+$active: #8490ff;
+$active-dark: #62bdfc;
+
+$gutter: 1rem;
+
+$breakpoints: (
+  'extra-small': (min-width: calculateRem(576px)),
+  'small':  (min-width: calculateRem(768px)),
+  'medium': (min-width: calculateRem(992px)),
+  'large':  (min-width: calculateRem(1200px))
+) !default;

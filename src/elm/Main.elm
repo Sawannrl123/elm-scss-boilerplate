@@ -1,8 +1,11 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, h1, img, text)
-import Html.Attributes exposing (class, src)
+import Components.Dummy as Dummy
+import Html exposing (Html, button, div, h1, img, text)
+import Html.Attributes exposing (class, id, src, type_)
+import Html.Events exposing (onClick)
+import Ports
 import Sections.Header as Header
 
 
@@ -26,7 +29,7 @@ initModel =
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( { initModel | images = flags.images }, Cmd.none )
+    ( { initModel | images = flags.images }, Ports.common () )
 
 
 
@@ -34,12 +37,14 @@ init flags =
 
 
 type Msg
-    = NoOp
+    = HeaderMsg Header.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        HeaderMsg headerMsg ->
+            ( model, Ports.handleNav () )
 
 
 
@@ -49,7 +54,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ Header.headerComponent model.images.logo
+        [ Html.map HeaderMsg (Header.headerComponent model.images.logo)
+        , div [ class "leave-header" ] []
+        , Dummy.dummyComponent
+        , div [ class "overlay hide", id "overlay" ] []
         ]
 
 

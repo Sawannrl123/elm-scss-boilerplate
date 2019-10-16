@@ -1,8 +1,13 @@
-module Components.Menu exposing (menuComponent)
+module Components.Menu exposing (Msg, menuComponent)
 
 import Browser
-import Html exposing (Html, a, div, nav, text)
-import Html.Attributes exposing (alt, class, href, title)
+import Html exposing (Html, a, div, input, label, nav, span, text)
+import Html.Attributes exposing (alt, class, for, href, id, title, type_)
+import Html.Events exposing (onClick)
+
+
+type Msg
+    = HandleNav
 
 
 type alias Menu =
@@ -44,11 +49,19 @@ menu =
     ]
 
 
-menuComponent : Html msg
+menuComponent : Html Msg
 menuComponent =
     div [ class "menu" ]
-        [ menuList
+        [ input [ type_ "checkbox", id "hamburger" ] []
+        , label [ for "hamburger", id "navButton", onClick HandleNav ]
+            (List.map hamBurger [ 1, 2, 3 ])
+        , menuList
         ]
+
+
+hamBurger : Int -> Html msg
+hamBurger index =
+    span [] []
 
 
 menuList : Html msg

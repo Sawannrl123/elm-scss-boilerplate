@@ -6,6 +6,8 @@ $active-dark: #62bdfc;
 
 $gutter: 1rem;
 
+$header-height: calculateRem(62px);
+
 $breakpoints: (
   'extra-small': (min-width: calculateRem(576px)),
   'small':  (min-width: calculateRem(768px)),

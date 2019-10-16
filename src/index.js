@@ -1,12 +1,18 @@
 import './main.css';
-import { Elm } from './Main.elm';
+import { Elm } from './elm/Main.elm';
 import * as images from './images'
 import * as serviceWorker from './serviceWorker';
+import {common, toggleNavMenu} from './js'
 
-Elm.Main.init({
+console.log('%c Sawan', 'color: purple;')
+
+var app = Elm.Main.init({
   node: document.getElementById('root'),
   flags: { images }
 });
+
+app.ports.common.subscribe(() => common());
+app.ports.handleNav.subscribe(() => toggleNavMenu());
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

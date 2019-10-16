@@ -1,8 +1,98 @@
 .menu-link {
-  text-transform: uppercase;
-  font-size: calculateRem(12px);
-  font-weight: 500;
-  display: inline-block;
-  vertical-align: middle;
-  padding: $gutter $gutter/2;
+  display: block;
+  font-size: calculateRem(13px);
+  overflow: hidden;
+  color: $white;
+  text-align: left;
+  padding: $gutter/2 $gutter;
+  @include bp('small') {
+    text-transform: uppercase;
+    font-size: calculateRem(12px);
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: middle;
+    padding: $gutter $gutter/2;
+    color: $text;
+  }
+}
+
+.menu-list {
+  position: fixed;
+  top: 0;
+  padding-top: $gutter;
+  bottom: 0;
+  z-index: 102;
+  background: rgba(0,0,0,.8);
+  left: calculateRem(-260px);
+  width: calculateRem(260px);
+  overflow-y: auto;
+  @include transition(.4s);
+  @include bp('small') {
+    position: relative;
+    padding-top: 0;
+    background-color: transparent;
+    left: auto;
+    width: auto;
+  }
+}
+
+.menu {
+  span {
+    display: block;
+    width: calculateRem(22px);
+    height: calculateRem(2px);
+    margin-bottom: calculateRem(4px);
+    position: relative;
+
+    background: $text;
+    border-radius: calculateRem(5px);
+
+    z-index: 101;
+
+    @include transform-origin(calculateRem(4px) 0);
+
+    @include transition(transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0))
+  }
+  input {
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-touch-callout: none;
+    &:checked {
+      & + label {
+        span {
+          opacity: 1;
+          @include transform(rotate(-45deg) translate(-2px, 0));
+          &:nth-last-child(2) {
+            opacity: 0;
+            @include transform(rotate(0deg) scale(0.2, 0.2));
+          }
+          &:first-child {
+            @include transform(rotate(45deg) translate(1px, 0));
+          }
+        }
+        & + nav {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+    span {
+      &:first-child {
+        @include transform-origin(0% 0%)
+      }
+      &:nth-last-child(2) {
+        @include transform-origin(0% 100%)
+      }
+    }
+  }
+
+  @include bp('small') {
+    label { display: none;}
+  }
 }

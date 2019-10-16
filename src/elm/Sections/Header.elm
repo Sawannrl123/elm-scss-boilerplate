@@ -1,17 +1,24 @@
-module Sections.Header exposing (headerComponent)
+module Sections.Header exposing (Msg, headerComponent)
 
 import Browser
 import Components.Logo as Logo
 import Components.Menu as Menu
 import Html exposing (Html, div, header)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, id)
+import Html.Events exposing (onClick)
 
 
-headerComponent : String -> Html msg
+type Msg
+    = MenuMsg Menu.Msg
+    | HideOverlay
+
+
+headerComponent : String -> Html Msg
 headerComponent logo =
-    header [ class "header header-scrolled" ]
+    header [ class "header", id "header" ]
         [ div [ class "container nav" ]
             [ Logo.logoComponent logo
-            , Menu.menuComponent
+            , Html.map MenuMsg Menu.menuComponent
             ]
+        , div [ class "menu-overlay hide" ] []
         ]

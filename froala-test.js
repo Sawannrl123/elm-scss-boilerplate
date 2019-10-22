@@ -1,4 +1,3 @@
-<script>
 !function(r) {
     var n = {};
     function o(e) {
@@ -52025,4 +52024,3 @@
     })
 }
 ]);
-</script>

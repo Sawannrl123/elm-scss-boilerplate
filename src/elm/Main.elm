@@ -6,6 +6,7 @@ import Html exposing (Html, button, div, h1, img, text)
 import Html.Attributes exposing (class, id, src, type_)
 import Html.Events exposing (onClick)
 import Ports
+import Sections.Footer as Footer
 import Sections.Header as Header
 
 
@@ -58,6 +59,7 @@ view model =
         , div [ class "leave-header" ] []
         , Dummy.dummyComponent
         , div [ class "overlay hide", id "overlay" ] []
+        , Footer.footerComponent
         ]
 
 

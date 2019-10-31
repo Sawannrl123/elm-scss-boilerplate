@@ -10,7 +10,6 @@ import Html.Events exposing (onClick)
 
 type Msg
     = MenuMsg Menu.Msg
-    | HideOverlay
 
 
 headerComponent : String -> Html Msg

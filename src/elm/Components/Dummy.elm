@@ -2,11 +2,12 @@ module Components.Dummy exposing (dummyComponent)
 
 import Browser
 import Html exposing (Html, div, dl, dt, h4, p, text)
+import Html.Attributes exposing (class)
 
 
 dummyComponent : Html msg
 dummyComponent =
-    div []
+    div [ class "container" ]
         [ dl []
             (List.map dtText [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ])
         ]

@@ -35,8 +35,10 @@ a {
   @include transition(all .2s linear);
   &:hover {
     color: $active-dark;
+    text-decoration: none;
   }
   &.active {
     color: $active;
+    text-decoration: none;
   }
 }

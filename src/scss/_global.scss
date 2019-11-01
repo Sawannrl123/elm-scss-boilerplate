@@ -27,24 +27,38 @@ body {
   display: block;
 }
 
-.container {
-  width: 100%;
-  padding-right: $gutter;
-  padding-left: $gutter;
-  margin-right: auto;
-  margin-left: auto;
-  @include bp('extra-small') {
-    max-width: calculateRem(540px)
-  }
+.leave-header {
+  margin-top: $header-height;
+}
 
-  @include bp('small') {
-    max-width: calculateRem(720px)
-  }
-  @include bp('medium') {
-    max-width: calculateRem(960px)
+.primary-btn {
+  background: $active;
+  line-height: calculateRem(42px);
+  padding-left: calculateRem(30px);
+  padding-right: calculateRem(30px);
+  border: none;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  @include transition(all .3s ease 0s);
+  cursor: pointer;
+  position: relative;
+  &, :hover {
+    color: $white !important;
   }
 }
 
-.leave-header {
-  margin-top: $header-height;
+.gradient {
+  background: -moz-linear-gradient(45deg, $active 0%, $active-dark 100%);
+  background: -webkit-linear-gradient(45deg, $active 0%, $active-dark 100%);
+  background: -ms-linear-gradient(45deg, $active 0%, $active-dark 100%);
+  background: linear-gradient(45deg, $active 0%, $active-dark 100%);
+}
+
+.section-gap {
+  padding: $gutter*7.5 0;
+}
+
+.pt-120 {
+  padding-top: $gutter*7.5;
 }

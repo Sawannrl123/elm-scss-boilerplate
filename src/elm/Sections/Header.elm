@@ -1,5 +1,6 @@
 module Sections.Header exposing (Msg, headerComponent)
 
+import Bootstrap.Grid as Grid
 import Browser
 import Components.Logo as Logo
 import Components.Menu as Menu
@@ -15,7 +16,7 @@ type Msg
 headerComponent : String -> Html Msg
 headerComponent logo =
     header [ class "header", id "header" ]
-        [ div [ class "container nav" ]
+        [ Grid.container [ class "nav" ]
             [ Logo.logoComponent logo
             , Html.map MenuMsg Menu.menuComponent
             ]

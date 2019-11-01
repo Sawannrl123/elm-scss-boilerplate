@@ -11,10 +11,16 @@
   height: inherit;
 }
 
+::-moz-selection, ::selection {
+  color: $white;
+  background: $active;
+}
+
 body {
   font-family: 'Poppins', 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   color: $text;
+  font-size: calculateRem(14px);
 }
 
 img {

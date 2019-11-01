@@ -1,6 +1,5 @@
 module Sections.Footer exposing (footerComponent)
 
-import Bootstrap.CDN as CDN
 import Bootstrap.Grid as Grid
 import Bootstrap.Grid.Col as Col
 import Browser

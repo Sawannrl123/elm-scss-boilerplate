@@ -2,7 +2,7 @@ module Components.Menu exposing (Msg, menuComponent)
 
 import Browser
 import Html exposing (Html, a, div, input, label, nav, span, text)
-import Html.Attributes exposing (alt, class, for, href, id, title, type_)
+import Html.Attributes exposing (alt, class, classList, for, href, id, title, type_)
 import Html.Events exposing (onClick)
 
 
@@ -23,7 +23,7 @@ type alias Payload =
 menu : Payload
 menu =
     [ { name = "Home"
-      , menuLink = ""
+      , menuLink = "#home"
       }
     , { name = "About"
       , menuLink = "#about"
@@ -66,12 +66,18 @@ hamBurger index =
 
 menuList : Html msg
 menuList =
-    nav [ class "menu-list" ]
-        (List.map menuItem menu)
+    nav [ class "menu-list", id "nav" ]
+        (List.indexedMap (\i x -> menuItem ( i, x )) menu)
 
 
-menuItem : Menu -> Html msg
-menuItem list =
-    a [ href list.menuLink, class "menu-link" ]
+menuItem : ( Int, Menu ) -> Html msg
+menuItem ( index, list ) =
+    a
+        [ href list.menuLink
+        , classList
+            [ ( "menu-link", True )
+            , ( "active", index == 0 )
+            ]
+        ]
         [ text list.name
         ]

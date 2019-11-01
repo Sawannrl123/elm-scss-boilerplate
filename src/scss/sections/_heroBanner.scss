@@ -1,0 +1,27 @@
+.hero-banner {
+  background-color: $hero-bg;
+  min-height: calculateRem(600px);
+}
+
+.banner-left {
+  h6 {
+    font-weight: 400;
+    letter-spacing: calculateRem(2px);
+    font-size: calculateRem(14px);
+  }
+  h1 {
+    font-size: calculateRem(60px);
+    margin: $gutter*1.25 0;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: $gutter;
+    color: $text-light
+  }
+  .primary-btn {
+    @extend .gradient;
+    &:hover {
+      @include box-shadow(0 calculateRem(20px) calculateRem(20px) 0 rgba(132,144,255,.3));
+    }
+  }
+}

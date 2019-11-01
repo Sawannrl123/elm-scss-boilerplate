@@ -1,0 +1,23 @@
+.home-about {
+  &-right {
+    h6 {
+      margin-bottom: calculateRem(30px);
+      font-weight: 400;
+    }
+    h2 {
+      margin-bottom: $gutter*2.5;
+      font-size: calculateRem(36px);
+    }
+    p {
+      margin-bottom: calculateRem(30px);
+      max-width: calculateRem(445px);
+      color: $text-light
+    }
+    .primary-btn {
+      @extend .gradient;
+      &:hover {
+        @include box-shadow(0 calculateRem(20px) calculateRem(20px) 0 rgba(132,144,255,.3));
+      }
+    }
+  }
+}

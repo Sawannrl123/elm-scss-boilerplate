@@ -8,5 +8,5 @@ import Html.Attributes exposing (alt, class, href, src, title)
 logoComponent : String -> Html msg
 logoComponent logo =
     a [ href "./", title "Personal", class "main-logo" ]
-        [ img [ src logo, title "Personal Logo" ] []
+        [ img [ src logo, title "Personal Logo", alt "Personal" ] []
         ]

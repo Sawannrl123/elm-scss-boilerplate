@@ -13,7 +13,12 @@ import Sections.HeroBanner as HeroBanner
 
 
 type alias Flags =
-    { images : { logo : String, heroBanner : String, aboutImage : String } }
+    { images :
+        { logo : String
+        , heroBanner : String
+        , aboutImage : String
+        }
+    }
 
 
 

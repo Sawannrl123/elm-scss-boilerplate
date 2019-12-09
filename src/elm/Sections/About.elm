@@ -4,8 +4,8 @@ import Bootstrap.Grid as Grid
 import Bootstrap.Grid.Col as Col
 import Bootstrap.Grid.Row as Row
 import Browser
-import Html exposing (Html, a, div, h2, h6, img, p, section, text)
-import Html.Attributes exposing (alt, class, href, id, src)
+import Html exposing (Html, a, button, div, h2, h6, img, p, section, span, text)
+import Html.Attributes exposing (alt, attribute, class, href, id, src)
 
 
 aboutRight : Html msg
@@ -39,6 +39,7 @@ aboutGrid image =
                 [ aboutRight
                 ]
             ]
+        , materialTesting
         ]
 
 
@@ -46,4 +47,14 @@ aboutComponent : String -> Html msg
 aboutComponent image =
     section [ class "home-about pt-120", id "about" ]
         [ aboutGrid image
+        ]
+
+
+materialTesting : Html msg
+materialTesting =
+    div []
+        [ button [ class "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ]
+            [ text "Button" ]
+        , span [ class "mdl-badge", attribute "data-badge" "4" ]
+            [ text "Inbox" ]
         ]

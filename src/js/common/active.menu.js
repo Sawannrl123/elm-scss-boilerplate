@@ -1,21 +1,21 @@
 export const activeMenu = () => {
-  var addEvent = (function() {
+  var addEvent = (function () {
       return window.addEventListener ?
-        function(el, ev, fn) {
+        function (el, ev, fn) {
           el.addEventListener(ev, fn, false);
         } :
-        function(el, ev, fn) {
-          el.attachEvent('on' + ev, function() {
+        function (el, ev, fn) {
+          el.attachEvent('on' + ev, function () {
             fn.call(el);
           });
         }
     })(),
 
-    hasClass = function(el, className) {
+    hasClass = function (el, className) {
       return (' ' + el.className + ' ').indexOf(' ' + className + ' ') != -1;
     },
 
-    getElementsByClass = function(c, node, tag) {
+    getElementsByClass = function (c, node, tag) {
       node = node || document;
       var els = tag || '*';
       var elements = node.getElementsByTagName(els);
@@ -28,18 +28,18 @@ export const activeMenu = () => {
       return matchedArray;
     }
 
-  var addClass = function(c, e) {
+  var addClass = function (c, e) {
     e.className += ` ${c}`;
   };
 
-  var removeClass = function(c, e) {
+  var removeClass = function (c, e) {
 
     e.className = e.className.replace(c, '');
   };
 
 
   if (typeof Array.prototype.forEach == 'undefined') {
-    Array.prototype.forEach = function(fn) {
+    Array.prototype.forEach = function (fn) {
       var len = this.length,
         thisp = arguments[1];
       for (var i = 0; i < len; ++i) {
@@ -56,8 +56,8 @@ export const activeMenu = () => {
       current = getElementsByClass(activeClass, nav, 'a')[0],
       lis = nav.getElementsByTagName('a');
     // since we're dealing with a nodeList
-    Array.prototype.forEach.call(lis, function(el) {
-      addEvent(el, 'click', function(e) {
+    Array.prototype.forEach.call(lis, function (el) {
+      addEvent(el, 'click', function (e) {
         if (!hasClass(this, activeClass)) {
           removeClass(activeClass, current);
           addClass(activeClass, el);
